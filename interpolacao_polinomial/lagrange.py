@@ -1,7 +1,7 @@
 #entradas da tabela
 g = int(input("Qual o grau do polinomio?\n"))
-x = [] #coordenadas x's dos pontos
-y = [] #coordenadas y's dos pontos
+x = [] #abscissas dos pontos
+y = [] #ordenadas dos pontos
 i = 0
 while len(x) < g+1:
     xi = float(input("Entre o valor do x"+str(i)+":\n"))
