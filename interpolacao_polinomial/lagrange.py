@@ -1,3 +1,5 @@
+import numpy as np
+
 #entradas da tabela
 g = int(input("Qual o grau do polinomio?"))
 x = []
@@ -13,43 +15,22 @@ while len(y) < g+1:
     i += 1
     y.append(yi)
 
-#funcao para calculo dos fatores de lagrange
-def fator(k,x,g,xi):
-    p1 = []#numerador
-    p2 = []#denominador
-    for i in range(0,g):
-        if i==k:
-            continue
-        p1i = (x-xi[i])
-        p1.append(p1i)
-        p2i = (xi[k]-xi[i])
-        p2.append(p2i)
-    #realizando o produtorio
-    numerador = 1
-    for i in p1:
-        numerador *= i
-    denominador = 1
-    for i in p2:
-        denominador *= i
-    fator = numerador/denominador
-    return fator
-
-#funcao lagrange
-def lagrange(x,g,xi,yi):
-    s = []
-    for i in range(0,g):
-        si = (yi[i])*(fator(i,x,g,xi))
-        s.append(si)
-    #realizando o somatorio
+#interpolacao de lagrange
+def lagrange(xi,yi,x,g):
+    #xi e yi sao as coordenadas dos pontos
+    #x eh o valor a ser calculado no polinomio
+    #g eh o grau do polinomio
     somatorio = 0
-    for i in s:
-        somatorio += i
-    return somatorio
+    n = g+1 #numero de pontos
+    for k in range(n):
+        def L(k) #calculo do fator de lagrange L
+            L = 1
+            for j in range(n):
+                if k==j: #j!=k
+                    continue
+                L *= float(x-x[j])/float(x[i]-x[j])
+            return L
 
-#programa principal
-n = int(input("Entre o valor de n"))
-p = int(input("Entre o valor de x"))
-print(lagrange(p,n,x,y))
 
 
      
