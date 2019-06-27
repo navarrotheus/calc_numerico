@@ -1,14 +1,14 @@
 #entradas da tabela
-g = int(input("Qual o grau do polinomio?\n"))
+n = int(input("Qual o numero de pontos?\n"))
 x = [] #abscissas dos pontos
 y = [] #ordenadas dos pontos
 i = 0
-while len(x) < g+1:
+while len(x) < n:
     xi = float(input("Entre o valor do x"+str(i)+":\n"))
     i += 1
     x.append(xi)
 i = 0
-while len(y) < g+1:
+while len(y) < n:
     yi = float(input("Entre o valor do y"+str(i)+":\n"))
     i += 1
     y.append(yi)
@@ -27,14 +27,13 @@ def L(k,xi,x,n): #calculo do fator de lagrange L
             continue
         L *= float(x-xi[j])/float(xi[k]-xi[j]) #divisao dos produtorios da formula
     return L
-def lagrange(xi,yi,x,g):
+def lagrange(xi,yi,x,n):
     #xi e yi sao as coordenadas dos pontos
     #x eh o valor a interpolar
-    #g eh o grau do polinomio
+    #n eh o numero de pontos
     somatorio = 0
-    n = g+1 #numero de pontos
     for k in range(n):
         somatorio += yi[k]*L(k,xi,x,n) #somatorio da formula
     return somatorio
 
-print(lagrange(x,y,z,g))
+print(lagrange(x,y,z,n))
