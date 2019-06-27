@@ -13,10 +13,14 @@ while len(y) < g+1:
     i += 1
     y.append(yi)
 
-xx = int(input("Entre o valor a ser interpolado:\n"))
+z = int(input("Entre o valor a ser interpolado:\n"))
 
 #interpolacao de lagrange
 def L(k,xi,x,n): #calculo do fator de lagrange L
+    #k eh o indice do fator
+    #xi sao as abscissas
+    #x eh o valor a interpolar
+    #n eh o numero de pontos
     L = 1
     for j in range(n):
         if k==j: #j!=k
@@ -33,4 +37,4 @@ def lagrange(xi,yi,x,g):
         somatorio += yi[k]*L(k,xi,x,n) #somatorio da formula
     return somatorio
 
-print(lagrange(x,y,xx,g))
+print(lagrange(x,y,z,g))
