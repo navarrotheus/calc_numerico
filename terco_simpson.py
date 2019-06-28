@@ -1,6 +1,11 @@
+import math
+
 #definindo a funcao
 def f(x):
-    return 1/x
+    if x <= 0:
+        return 0
+    return math.exp(-x)
+   
 
 #definindo o intervalo
 a = float(input("Entre o valor do limite inferior do intervalo:\n"))
