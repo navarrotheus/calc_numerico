@@ -5,12 +5,9 @@ y = [] #ordenadas dos pontos
 i = 0
 while len(x) < n:
     xi = float(input("Entre o valor do x"+str(i)+":\n"))
-    i += 1
-    x.append(xi)
-i = 0
-while len(y) < n:
     yi = float(input("Entre o valor do y"+str(i)+":\n"))
     i += 1
+    x.append(xi)
     y.append(yi)
 
 z = int(input("Entre o valor a ser interpolado:\n"))
